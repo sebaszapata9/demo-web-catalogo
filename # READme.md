@@ -31,6 +31,23 @@
 17. Ejecutar las migraciones: \[python manage.py migrate]
 18. Ejecutar comando de validación de migración ejecutada: \[python manage.py sqlmigrate catalogo 000X]
 19. Creación de 5 ítems de catálogo ejemplo, ingresándolos en Python Shell: \[python manage.py shell] -> \[catalogo.models import ProductoServicio] -> \[ProductoServicio.objects.all()], más detalle en archivo en Notion sobre como cargar items: https://app.notion.com/p/Conceptos-b-sicos-3cb93cf60fb4802ab6ddfce3890d22d8
-20. Crear un template básico para que veamos los productos renderizados, para saber más sobre esto ingresar al link en Notion: https://app.notion.com/p/Mostrar-data-3cb93cf60fb4801d8e4decfc9e6da599
-21. 
+
+
+
+\### realizando primera carga en git
+
+
+
+1. \[git add --all]
+2. \[git commit -m "Configuración inicial y carga de modelos"]
+3. \[git push -u origin main]
+
+
+
+\### renderizando los datos del modelo
+
+
+
+1. Crear un template en html básico para que veamos los productos renderizados, para saber más sobre esto ingresar al link en Notion: https://app.notion.com/p/Mostrar-data-3cb93cf60fb4801d8e4decfc9e6da599
+2. declarar el modelo en el archivo views.py, creando una función que mostrará los ítems dentro del html
 
