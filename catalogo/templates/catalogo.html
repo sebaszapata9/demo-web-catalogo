@@ -52,10 +52,10 @@
 
     <header>
         <div class="nav-container">
-            <a href="#index" class="logo-text">TodoTech SAC</a>
+            <a href="{% url 'landing' %}" class="logo-text">TodoTech SAC</a>
             <ul class="nav-links">
-                <li><a href="#index">Inicio</a></li>
-                <li><a href="#">Catálogo</a></li>
+                <li><a href="{% url 'landing' %}">Inicio</a></li>
+                <li><a href="{% url 'lista_items' %}">Catálogo</a></li>
             </ul>
         </div>
     </header>
