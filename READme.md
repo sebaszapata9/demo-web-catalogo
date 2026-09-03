@@ -1,14 +1,15 @@
-\# READme
+
+READme de proyecto web catálogo
+# READme
 
 
 
-\## paso a paso
+## paso a paso
 
 
 
 
-
-\### instalación inicial
+### instalación inicial
 
 
 
@@ -34,7 +35,7 @@
 
 
 
-\### realizando primera carga en git
+### realizando primera carga en git
 
 
 
@@ -44,10 +45,19 @@
 
 
 
-\### renderizando los datos del modelo
+### renderizando los datos del modelo
 
 
 
 1. Crear un template en html básico para que veamos los productos renderizados, para saber más sobre esto ingresar al link en Notion: https://app.notion.com/p/Mostrar-data-3cb93cf60fb4801d8e4decfc9e6da599
 2. declarar el modelo en el archivo views.py, creando una función que mostrará los ítems dentro del html
+3. Hacer la conexión urls - views - templates/models
+4. probar la conexión, creando un superuser para acceder al panel admin
+5. testear 2 htmls, diseñados por gemini
+6. validamos que los datos renderizan correctamente
+7. disponibilizamos en el panel admin los modelos de productos e info del negocio
 
+
+### Optimización de los htmls, carga de imagenes, y generación de links dinamicos por producto
+1. Se optimizaron las páginas de landing y catalogo con colores de marca de la empresa ficticia
+2. 
