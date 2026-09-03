@@ -4,11 +4,11 @@
 <body>
 
 <h1>{{ item.nombre }} </h1>
-  
+<img src="{{ item.imagen.url }}" alt="{{ item.nombre }}" class="img-fluid">
 <p>Precio: ${{ item.precio }}</p>
 <p>Descripcion: {{ item.descripcion }}</p>
 
-<p>Regresa al <a href="/catalogo">Catálogo</a></p>
+<p>Regresa al <a href="{% url 'lista_items' %}">Catálogo</a></p>
 
 </body>
 </html>

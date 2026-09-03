@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Negocio, ProductoServicio
 
 
@@ -14,5 +14,6 @@ def landing(request):
 
 
 def detalle_item(request, slug):
-  item = ProductoServicio.objects.get(slug=slug)
-  return render(request, 'details.html', {'item': item})
+  # Usamos get_object_or_404 para evitar errores si el slug no existe
+  item = get_object_or_404(ProductoServicio, slug=slug)
+  return render(request, 'item.html', {'item': item})
