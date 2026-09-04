@@ -60,4 +60,13 @@ READme de proyecto web catálogo
 
 ### Optimización de los htmls, carga de imagenes, y generación de links dinamicos por producto
 1. Se optimizaron las páginas de landing y catalogo con colores de marca de la empresa ficticia
-2. 
+2. Se pudo crear correctamente la página de item individual, asociandola por slug en urls, views, etc
+
+
+## proximos pasos
+Link: https://share.gemini.google/Din8ZLM4G3y0
+1. Consolidar y ordenar el Backend (Modelos y Admin de Django)
+2. Implementar la Arquitectura Limpia en el Frontend (Master Template y Archivos Separados)
+3. Integrar la Lógica de Negocio Crítica (WhatsApp y Stock)
+4. Pruebas Locales y Preparación para Producción
+5. Despliegue a Producción (Hosting de Bajo Costo)
