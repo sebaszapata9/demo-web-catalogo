@@ -5,10 +5,13 @@ from .models import ProductoServicio, Negocio
 
 class ProductoServicioAdmin(admin.ModelAdmin):
   list_display = ("nombre", "marca", "precio", "stock",)
+  search_fields = ('nombre', 'marca')
+  list_filter = ('stock_activo', 'marca')
+  prepopulated_fields = {'slug': ('nombre',)}  # Autocompletar el slug
   
 admin.site.register(ProductoServicio, ProductoServicioAdmin)
 
 class NegocioAdmin(admin.ModelAdmin):
-  list_display = ("nombre", "direccion", "telefono", "correo_electronico")
+  list_display = ("nombre", "telefono", "correo_electronico")
   
 admin.site.register(Negocio, NegocioAdmin)
