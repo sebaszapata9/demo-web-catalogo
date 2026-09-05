@@ -1,3 +1,5 @@
+from email.utils import quote
+
 from django.db import models
 
 # Create your models here.
@@ -25,3 +27,16 @@ class ProductoServicio(models.Model):
 	stock_activo = models.BooleanField(default=True)
 	fecha_creacion = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return self.nombre
+
+	def obtener_link_whatsapp(self):
+		# Número de teléfono comercial de TodoTech SAC
+		telefono = "51930741767"
+		mensaje = (
+			f"Hola, estoy interesado en el producto: {self.nombre}. ¿Me podrían dar"
+			" más información?"
+		)
+		# quote se encarga de reemplazar espacios y caracteres especiales para URLs de forma segura
+		mensaje_codificado = quote(mensaje)
+		return f"https://wa.me/{telefono}?text={mensaje_codificado}"

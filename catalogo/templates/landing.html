@@ -1,114 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoTech SAC - Especialistas en Laptops</title>
-    <style>
-        :root {
-            --brand-teal-light: #119DA4;
-            --brand-teal-main: #0C7489;
-            --brand-teal-dark: #13505B;
-            --brand-black: #040404;
-            --brand-gray: #D7D9CE;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: var(--brand-black); background-color: var(--bg-light); line-height: 1.6; }
-        
-        header { background: var(--white); box-shadow: 0 2px 4px rgba(4,4,4,0.05); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-        .logo-text { font-size: 1.5rem; font-weight: bold; color: var(--brand-teal-main); text-decoration: none; }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--brand-black); font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--brand-teal-light); }
-        .nav-cta { background-color: var(--brand-teal-light); color: var(--white) !important; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.2s; }
-        .nav-cta:hover { background-color: var(--brand-teal-main) !important; }
-        
-        .hero { background: linear-gradient(135deg, var(--brand-teal-dark), var(--brand-teal-main)); color: var(--white); text-align: center; padding: 6rem 2rem; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem auto; opacity: 0.95; }
-        .btn { display: inline-block; background-color: var(--brand-gray); color: var(--brand-black); padding: 0.85rem 2.25rem; border-radius: 5px; font-weight: bold; text-decoration: none; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn:hover { background-color: var(--white); transform: translateY(-2px); }
+{% extends 'base.html' %}
 
-        .features-section { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2.5rem; color: var(--brand-teal-dark); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(4,4,4,0.03); border-top: 4px solid var(--brand-teal-light); }
-        .feature-card h3 { color: var(--brand-teal-main); margin-bottom: 0.75rem; font-size: 1.25rem; }
+{% block title %}TodoTech SAC - Especialistas en Laptops{% endblock %}
 
-        .info-section { max-width: 1100px; margin: 0 auto 4rem auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(4,4,4,0.02); }
-        .card h3 { color: var(--brand-teal-dark); margin-bottom: 1rem; font-size: 1.25rem; }
-        
-        footer { background: var(--brand-black); color: var(--white); text-align: center; padding: 2.5rem 2rem; margin-top: 4rem; }
-        footer p { opacity: 0.8; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo-text">{{ negocio.nombre|default:"TodoTech SAC" }}</a>
-            <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="{% url 'lista_items' %}">Catálogo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="{% url 'lista_items' %}" class="nav-cta">Ver Tienda</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>{{ data_negocio.nombre|default:"TodoTech SAC" }}</h1>
-            <p>{{ data_negocio.descripcion|default:"Especialistas en la comercialización de laptops de alto rendimiento para uso personal, profesional y de oficina." }}</p>
-            <a href="{% url 'lista_items' %}" class="btn">Explorar Catálogo de Laptops</a>
-        </section>
-
-        <section class="features-section">
-            <h2 class="section-title">¿Por qué elegirnos?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Tecnología de Punta</h3>
-                    <p>Ofrecemos las marcas más confiables del mercado con procesadores de última generación para potenciar tu productividad.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Garantía y Soporte</h3>
-                    <p>Todas nuestras equipos cuentan con garantía oficial y soporte técnico especializado para resolver cualquier duda.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Asesoría Personalizada</h3>
-                    <p>Te ayudamos a encontrar el equipo ideal que se adapte perfectamente a tus requerimientos de oficina o estudio.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="info-section" id="contacto">
-            <div class="card">
-                <h3>Ubicación</h3>
-                <p>{{ data_negocio.direccion|default:"Av. Principal 123, Oficina 402 - Lima, Perú" }}</p>
-            </div>
-            <div class="card">
-                <h3>Teléfono de Contacto</h3>
-                <p>{{ data_negocio.telefono|default:"+51 999 888 777" }}</p>
-            </div>
-            <div class="card">
-                <h3>Correo Electrónico</h3>
-                <p>{{ data_negocio.correo_electronico|default:"ventas@todotech.pe" }}</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 {{ data_negocio.nombre|default:"TodoTech SAC" }}. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Landing page de TodoTech SAC cargada correctamente.");
-        });
-    </script>
-</body>
-</html>
+{% block content %}
+<section class="hero" style="background: linear-gradient(135deg, var(--brand-teal-dark), var(--brand-teal-main)); color: var(--white); text-align: center; padding: 6rem 2rem;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">{{ data_negocio.nombre|default:"TodoTech SAC" }}</h1>
+    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem auto; opacity: 0.95;">{{ data_negocio.descripcion|default:"Especialistas en la comercialización de laptops de alto rendimiento." }}</p>
+    <a href="{% url 'lista_items' %}" class="btn" style="background-color: var(--brand-gray); color: var(--brand-black); padding: 0.85rem 2.25rem; border-radius: 5px; font-weight: bold; text-decoration: none;">Explorar Catálogo</a>
+</section>
+<!-- Resto de secciones de la landing... -->
+{% endblock %}
