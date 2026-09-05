@@ -52,10 +52,10 @@
 
             <!-- Botón de acción: WhatsApp Personalizado -->
             <div class="actions-wrapper">
-                <a href="{{ item.obtener_link_whatsapp }}" 
-                   target="_blank" 
-                   class="btn-whatsapp-action">
-                   Consultar por WhatsApp
+                <a href="https://wa.me/{{ data_negocio.telefono|default:'51987654321' }}?text=Hola%2C%20estoy%20interesado%20en%20el%20producto%3A%20{{ item.nombre|urlencode }}" 
+                    target="_blank" 
+                    class="btn-whatsapp-action">
+                    Consultar por WhatsApp 💬
                 </a>
             </div>
         </div>

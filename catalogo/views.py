@@ -3,9 +3,31 @@ from .models import Negocio, ProductoServicio
 
 
 
+from django.shortcuts import render
+from .models import Negocio, ProductoServicio
+
+
 def lista_items(request):
-  items = ProductoServicio.objects.all()
-  return render(request,'catalogo.html', {'items': items})
+  # Capturamos la categoría enviada por URL (ej: /catalogo/?categoria=gaming)
+  categoria_seleccionada = request.GET.get('categoria')
+
+  # Filtramos productos activos
+  productos = ProductoServicio.objects.filter(stock_activo=True, stock__gt=0)
+
+  # AQUÍ ESTÁ EL CAMBIO CLAVE: filtramos usando el atributo correcto del modelo (categoria_item)
+  if categoria_seleccionada:
+    productos = productos.filter(categoria_item=categoria_seleccionada)
+
+  data_negocio = Negocio.objects.first()
+
+  contexto = {
+      'items': productos,
+      'data_negocio': data_negocio,
+      'categoria_actual': categoria_seleccionada,
+  }
+
+  # Renderizado directo con el nombre de template exacto
+  return render(request, 'catalogo.html', contexto)
 
 
 def landing(request):
@@ -16,4 +38,9 @@ def landing(request):
 def detalle_item(request, slug):
   # Usamos get_object_or_404 para evitar errores si el slug no existe
   item = get_object_or_404(ProductoServicio, slug=slug)
-  return render(request, 'item.html', {'item': item})
+  data_negocio = Negocio.objects.first()
+  contexto = {
+      'item': item,
+      'data_negocio': data_negocio,
+  }
+  return render(request, 'item.html', contexto)

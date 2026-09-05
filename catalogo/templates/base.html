@@ -13,12 +13,19 @@
     <!-- Barra de Navegación Compartida -->
     <header>
         <div class="nav-container">
-            <a href="{% url 'landing' %}" class="logo-text">TodoTech SAC</a>
+            <a href="{% url 'landing' %}" class="logo-brand">
+                {% if data_negocio.logo %}
+                    <!-- Si el dueño subió un logo en el Admin, se muestra la imagen -->
+                    <img src="{{ data_negocio.logo.url }}" alt="{{ data_negocio.nombre }}" style="max-height: 40px; width: auto;">
+                {% else %}
+                    <!-- Si no hay logo cargado, muestra el texto corporativo por defecto -->
+                    <span class="logo-text">{{ data_negocio.nombre|default:"TodoTech SAC" }}</span>
+                {% endif %}
+            </a>
             <ul class="nav-links">
                 <li><a href="{% url 'landing' %}">Inicio</a></li>
                 <li><a href="{% url 'lista_items' %}">Catálogo</a></li>
-                <li><a href="{% url 'landing' %}#contacto">Contacto</a></li>
-                <li><a href="{% url 'lista_items' %}" class="nav-cta">Ver Tienda</a></li>
+                <li><a href="https://wa.me/{{ data_negocio.telefono|default:'51987654321' }}?text=Hola%2C%20quiero%20comprar%20una%20laptop%20" target="_blank">Contacto</a></li>
             </ul>
         </div>
     </header>

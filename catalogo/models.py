@@ -16,10 +16,19 @@ class Negocio(models.Model):
 
 
 class ProductoServicio(models.Model):
+	categoria_item_choices = [('profesional', 'Profesional'), 
+						   ('gaming', 'Gaming'), 
+						   ('estudiante', 'Estudiante')]
+
+
 	nombre = models.CharField(max_length=255)
 	marca = models.CharField(max_length=255)
 	descripcion = models.TextField()
 	imagen = models.ImageField(upload_to='imagenes/', blank=True, null=True)
+	categoria_prod_servicio = models.CharField(max_length=255, choices=[
+		('producto', 'Producto'),
+		('servicio', 'Servicio')], blank=True, null=True)
+	categoria_item = models.CharField(max_length=255, choices=categoria_item_choices, blank=True, null=True)
 	precio = models.DecimalField(max_digits=10, decimal_places=2)
 	slug = models.SlugField(unique=True)
 	stock = models.PositiveIntegerField()
@@ -28,15 +37,4 @@ class ProductoServicio(models.Model):
 	fecha_creacion = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return self.nombre
-
-	def obtener_link_whatsapp(self):
-		# Número de teléfono comercial de TodoTech SAC
-		telefono = "51930741767"
-		mensaje = (
-			f"Hola, estoy interesado en el producto: {self.nombre}. ¿Me podrían dar"
-			" más información?"
-		)
-		# quote se encarga de reemplazar espacios y caracteres especiales para URLs de forma segura
-		mensaje_codificado = quote(mensaje)
-		return f"https://wa.me/{telefono}?text={mensaje_codificado}"
+		return f"{self.nombre} - {self.categoria_item}"
