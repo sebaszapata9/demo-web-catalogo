@@ -70,6 +70,5 @@ READme de proyecto web catálogo
 4. se integró una base de datos en postgresql
 
 ## proximos pasos
-1. Validar exitosa instalación de postgresql
-2. optimizar las vistas templates, ya que algunos titulos están hardcodeados y la idea es que sea dinámico
-3. desplegar a producción
+1. optimizar las vistas templates, ya que algunos titulos están hardcodeados y la idea es que sea dinámico
+2. desplegar a producción
