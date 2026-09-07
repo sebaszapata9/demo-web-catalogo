@@ -63,10 +63,13 @@ READme de proyecto web catálogo
 2. Se pudo crear correctamente la página de item individual, asociandola por slug en urls, views, etc
 
 
+### Optimización de backend, lógica de negocio y despliegue front end
+1. Se optimizaron los modelos para agregar categorías de productos
+2. Se desplegaron botones dinámicos de whatsapp personalizados por item
+3. Se optimizó la landing para que utilizara un master template y tuviera CRO
+4. se integró una base de datos en postgresql
+
 ## proximos pasos
-Link: https://share.gemini.google/Din8ZLM4G3y0
-1. Consolidar y ordenar el Backend (Modelos y Admin de Django)
-2. Implementar la Arquitectura Limpia en el Frontend (Master Template y Archivos Separados)
-3. Integrar la Lógica de Negocio Crítica (WhatsApp y Stock)
-4. Pruebas Locales y Preparación para Producción
-5. Despliegue a Producción (Hosting de Bajo Costo)
+1. Validar exitosa instalación de postgresql
+2. optimizar las vistas templates, ya que algunos titulos están hardcodeados y la idea es que sea dinámico
+3. desplegar a producción

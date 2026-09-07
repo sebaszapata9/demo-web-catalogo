@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'demo_web_catalogo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'catalogo_db_web_catalogo',       # El nombre de la base de datos que creaste
+        'USER': 'postgres',          # Tu usuario de PostgreSQL
+        'PASSWORD': 'gelatina',   # Tu contraseña
+        'HOST': 'localhost',         # O la IP del servidor si está en la nube
+        'PORT': '5432',              # Puerto por defecto de Postgres
     }
 }
 
