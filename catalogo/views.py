@@ -3,10 +3,6 @@ from .models import Negocio, ProductoServicio
 
 
 
-from django.shortcuts import render
-from .models import Negocio, ProductoServicio
-
-
 def lista_items(request):
   # Capturamos la categoría enviada por URL (ej: /catalogo/?categoria=gaming)
   categoria_seleccionada = request.GET.get('categoria')

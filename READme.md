@@ -71,4 +71,5 @@ READme de proyecto web catálogo
 
 ## proximos pasos
 1. optimizar las vistas templates, ya que algunos titulos están hardcodeados y la idea es que sea dinámico
-2. desplegar a producción
+2. corregir colores alterados del css
+3. desplegar a producción
